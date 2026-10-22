@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hearth</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div id="auth-screen">
+    <div class="auth-card">
+      <h1>Welcome to Hearth</h1>
+      <p class="sub">Email account only — no Google or X. Talk on a real server.</p>
+      <div class="tabs">
+        <button type="button" id="tab-register" class="active">Register</button>
+        <button type="button" id="tab-login">Sign in</button>
+      </div>
+      <form id="auth-form" novalidate>
+        <div class="field" id="name-field">
+          <label>Display name</label>
+          <input id="auth-name" maxlength="32" placeholder="Your name" />
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input id="auth-email" type="email" placeholder="you@example.com" />
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input id="auth-password" type="password" minlength="6" placeholder="At least 6 characters" />
+        </div>
+        <p class="auth-error" id="auth-error"></p>
+        <button class="btn-primary" type="submit" id="auth-submit">Create account</button>
+      </form>
+      <p class="server-hint">Connected to the Hearth server on this machine</p>
+    </div>
+  </div>
+
+  <div id="app" class="hidden">
+    <aside class="rail" id="server-rail"></aside>
+    <aside class="sidebar">
+      <div class="sidebar-head">
+        <span id="sidebar-title">Servers</span>
+        <button type="button" id="btn-sidebar-action" title="New">+</button>
+      </div>
+      <div class="sidebar-body" id="sidebar-body"></div>
+      <div class="sidebar-foot">
+        <div class="av"><span id="me-letter">?</span><span class="dot"></span></div>
+        <div class="info">
+          <div class="n" id="me-name">User</div>
+          <div class="s">Online</div>
+        </div>
+        <button class="act" type="button" id="btn-logout" title="Sign out">⏻</button>
+      </div>
+    </aside>
+    <section class="main">
+      <header class="main-head">
+        <span class="hash" id="head-icon">#</span>
+        <span class="title" id="head-title">general</span>
+        <span class="topic" id="head-topic"></span>
+        <span class="spacer"></span>
+        <button class="tool" type="button" id="btn-invite" title="Invite">🔗</button>
+      </header>
+      <div class="messages" id="messages"></div>
+      <div class="composer-wrap">
+        <div class="composer">
+          <textarea id="msg-input" rows="1" placeholder="Message…" maxlength="2000"></textarea>
+          <button class="send" type="button" id="btn-send">Send</button>
+        </div>
+      </div>
+    </section>
+    <aside class="members" id="members-panel"></aside>
+  </div>
+  <div id="modal-root"></div>
+  <div id="picker-root"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
